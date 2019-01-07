@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GL.PalicPG.Prim_117.LW5", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GL.PalicPG.Prim_117.LW6", "GL.PalicPG.Prim_117.LW6\GL.PalicPG.Prim_117.LW6.csproj", "{15518C53-7AEE-4267-A7AF-FAA1DEA076DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GL.PalicPG.Prim_117.LW7", "GL.PalicPG.Prim_117.LW7\GL.PalicPG.Prim_117.LW7.csproj", "{E3848A17-F5E4-4B80-8606-6C6798EBE700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{15518C53-7AEE-4267-A7AF-FAA1DEA076DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15518C53-7AEE-4267-A7AF-FAA1DEA076DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15518C53-7AEE-4267-A7AF-FAA1DEA076DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3848A17-F5E4-4B80-8606-6C6798EBE700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3848A17-F5E4-4B80-8606-6C6798EBE700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3848A17-F5E4-4B80-8606-6C6798EBE700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3848A17-F5E4-4B80-8606-6C6798EBE700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
