@@ -152,13 +152,6 @@ namespace GL.PalicPG.Prim_117.LW9
             }
         }
 
-        private void TrackBarPerAngle_Scroll(object sender, EventArgs e)
-        {
-            TrackBar tb = (TrackBar)sender;
-            labelPerAngle.Text = "Angle " + tb.Value;
-            ChangePer();
-        }
-
         private void TrackBarPerFar_Scroll(object sender, EventArgs e)
         {
             TrackBar tb = (TrackBar)sender;
@@ -193,7 +186,6 @@ namespace GL.PalicPG.Prim_117.LW9
         {
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
-            Glu.gluPerspective(trackBarPerAngle.Value, (float)AnT.Width / (float)AnT.Height, 0.1, trackBarPerFar.Value);
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
             Gl.glLoadIdentity();
         }
@@ -272,11 +264,11 @@ namespace GL.PalicPG.Prim_117.LW9
 
         private void CheckBoxLight2_CheckedChanged(object sender, EventArgs e) => LightSwitcher(((CheckBox)sender).Checked, Gl.GL_LIGHT2);
 
-        private void ComboBoxLightColorAmbient_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_AMBIENT, comboBoxLightColorAmbient.SelectedIndex);
+        private void ComboBoxLightColorAmbient_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_AMBIENT, СomboBoxLightColorAmbient.SelectedIndex);
 
-        private void ComboBoxLightColorDiffuse_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_DIFFUSE, comboBoxLightColorDiffuse.SelectedIndex);
+        private void ComboBoxLightColorDiffuse_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_DIFFUSE, СomboBoxLightColorDiffuse.SelectedIndex);
 
-        private void ComboBoxLightColorSpecular_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_SPECULAR, comboBoxLightColorSpecular.SelectedIndex);
+        private void ComboBoxLightColorSpecular_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_SPECULAR, СomboBoxLightColorSpecular.SelectedIndex);
 
         private void LightColorSwitcher(int light, int PNAME, int color)
         {

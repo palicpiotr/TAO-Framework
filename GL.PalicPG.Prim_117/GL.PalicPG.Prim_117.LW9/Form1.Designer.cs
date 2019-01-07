@@ -60,10 +60,8 @@
             this.trackBarOrtFar = new System.Windows.Forms.TrackBar();
             this.labelOrtFar = new System.Windows.Forms.Label();
             this.tabPagePerspective = new System.Windows.Forms.TabPage();
-            this.trackBarPerAngle = new System.Windows.Forms.TrackBar();
             this.labelPerFar = new System.Windows.Forms.Label();
             this.trackBarPerFar = new System.Windows.Forms.TrackBar();
-            this.labelPerAngle = new System.Windows.Forms.Label();
             this.tabPageFrustum = new System.Windows.Forms.TabPage();
             this.trackBarFruFar = new System.Windows.Forms.TrackBar();
             this.labelFruFar = new System.Windows.Forms.Label();
@@ -71,11 +69,11 @@
             this.openFileDialogTextureImage = new System.Windows.Forms.OpenFileDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboBoxLightColorSpecular = new System.Windows.Forms.ComboBox();
+            this.СomboBoxLightColorSpecular = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBoxLightColorDiffuse = new System.Windows.Forms.ComboBox();
+            this.СomboBoxLightColorDiffuse = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBoxLightColorAmbient = new System.Windows.Forms.ComboBox();
+            this.СomboBoxLightColorAmbient = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.labelLightInfo = new System.Windows.Forms.Label();
             this.trackBarLightA = new System.Windows.Forms.TrackBar();
@@ -101,7 +99,6 @@
             this.tabPageOrtho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarOrtFar)).BeginInit();
             this.tabPagePerspective.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarPerAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPerFar)).BeginInit();
             this.tabPageFrustum.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarFruFar)).BeginInit();
@@ -125,7 +122,7 @@
             this.AnT.ColorBits = ((byte)(32));
             this.AnT.DepthBits = ((byte)(16));
             this.AnT.Location = new System.Drawing.Point(16, 33);
-            this.AnT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AnT.Margin = new System.Windows.Forms.Padding(4);
             this.AnT.Name = "AnT";
             this.AnT.Size = new System.Drawing.Size(800, 738);
             this.AnT.StencilBits = ((byte)(0));
@@ -183,9 +180,9 @@
             this.label1.Location = new System.Drawing.Point(824, 65);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 17);
+            this.label1.Size = new System.Drawing.Size(38, 17);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Axis";
+            this.label1.Text = "AXIS";
             // 
             // comboBoxAxis
             // 
@@ -195,7 +192,7 @@
             "byY",
             "byZ"});
             this.comboBoxAxis.Location = new System.Drawing.Point(824, 85);
-            this.comboBoxAxis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxAxis.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxAxis.Name = "comboBoxAxis";
             this.comboBoxAxis.Size = new System.Drawing.Size(160, 24);
             this.comboBoxAxis.TabIndex = 4;
@@ -205,7 +202,7 @@
             // 
             this.checkBoxWired.AutoSize = true;
             this.checkBoxWired.Location = new System.Drawing.Point(824, 118);
-            this.checkBoxWired.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxWired.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxWired.Name = "checkBoxWired";
             this.checkBoxWired.Size = new System.Drawing.Size(67, 21);
             this.checkBoxWired.TabIndex = 5;
@@ -226,7 +223,7 @@
             // trackBarX
             // 
             this.trackBarX.Location = new System.Drawing.Point(824, 187);
-            this.trackBarX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarX.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarX.Maximum = 50000;
             this.trackBarX.Minimum = -50000;
             this.trackBarX.Name = "trackBarX";
@@ -238,7 +235,7 @@
             // trackBarY
             // 
             this.trackBarY.Location = new System.Drawing.Point(892, 187);
-            this.trackBarY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarY.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarY.Maximum = 50000;
             this.trackBarY.Minimum = -50000;
             this.trackBarY.Name = "trackBarY";
@@ -260,7 +257,7 @@
             // trackBarZ
             // 
             this.trackBarZ.Location = new System.Drawing.Point(975, 187);
-            this.trackBarZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarZ.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarZ.Maximum = 50000;
             this.trackBarZ.Minimum = -50000;
             this.trackBarZ.Name = "trackBarZ";
@@ -282,7 +279,7 @@
             // trackBarAngle
             // 
             this.trackBarAngle.Location = new System.Drawing.Point(1059, 187);
-            this.trackBarAngle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarAngle.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarAngle.Maximum = 360;
             this.trackBarAngle.Minimum = -360;
             this.trackBarAngle.Name = "trackBarAngle";
@@ -304,7 +301,7 @@
             // trackBarZoom
             // 
             this.trackBarZoom.Location = new System.Drawing.Point(1127, 187);
-            this.trackBarZoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarZoom.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarZoom.Maximum = 5000;
             this.trackBarZoom.Minimum = -5000;
             this.trackBarZoom.Name = "trackBarZoom";
@@ -384,7 +381,7 @@
             this.tabControlCam.Controls.Add(this.tabPagePerspective);
             this.tabControlCam.Controls.Add(this.tabPageFrustum);
             this.tabControlCam.Location = new System.Drawing.Point(16, 779);
-            this.tabControlCam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlCam.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlCam.Name = "tabControlCam";
             this.tabControlCam.SelectedIndex = 0;
             this.tabControlCam.Size = new System.Drawing.Size(1252, 167);
@@ -396,9 +393,9 @@
             this.tabPageOrtho.Controls.Add(this.trackBarOrtFar);
             this.tabPageOrtho.Controls.Add(this.labelOrtFar);
             this.tabPageOrtho.Location = new System.Drawing.Point(4, 25);
-            this.tabPageOrtho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageOrtho.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageOrtho.Name = "tabPageOrtho";
-            this.tabPageOrtho.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageOrtho.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageOrtho.Size = new System.Drawing.Size(1244, 138);
             this.tabPageOrtho.TabIndex = 0;
             this.tabPageOrtho.Text = "Ortho";
@@ -407,11 +404,11 @@
             // trackBarOrtFar
             // 
             this.trackBarOrtFar.Location = new System.Drawing.Point(43, 38);
-            this.trackBarOrtFar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarOrtFar.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarOrtFar.Maximum = 200;
             this.trackBarOrtFar.Minimum = 1;
             this.trackBarOrtFar.Name = "trackBarOrtFar";
-            this.trackBarOrtFar.Size = new System.Drawing.Size(561, 56);
+            this.trackBarOrtFar.Size = new System.Drawing.Size(1167, 56);
             this.trackBarOrtFar.TabIndex = 20;
             this.trackBarOrtFar.Value = 50;
             this.trackBarOrtFar.Scroll += new System.EventHandler(this.TrackBarOrtFar_Scroll);
@@ -428,29 +425,16 @@
             // 
             // tabPagePerspective
             // 
-            this.tabPagePerspective.Controls.Add(this.trackBarPerAngle);
             this.tabPagePerspective.Controls.Add(this.labelPerFar);
             this.tabPagePerspective.Controls.Add(this.trackBarPerFar);
-            this.tabPagePerspective.Controls.Add(this.labelPerAngle);
             this.tabPagePerspective.Location = new System.Drawing.Point(4, 25);
-            this.tabPagePerspective.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePerspective.Margin = new System.Windows.Forms.Padding(4);
             this.tabPagePerspective.Name = "tabPagePerspective";
-            this.tabPagePerspective.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePerspective.Padding = new System.Windows.Forms.Padding(4);
             this.tabPagePerspective.Size = new System.Drawing.Size(1244, 138);
             this.tabPagePerspective.TabIndex = 1;
             this.tabPagePerspective.Text = "Perspective";
             this.tabPagePerspective.UseVisualStyleBackColor = true;
-            // 
-            // trackBarPerAngle
-            // 
-            this.trackBarPerAngle.Location = new System.Drawing.Point(21, 52);
-            this.trackBarPerAngle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.trackBarPerAngle.Maximum = 180;
-            this.trackBarPerAngle.Name = "trackBarPerAngle";
-            this.trackBarPerAngle.Size = new System.Drawing.Size(561, 56);
-            this.trackBarPerAngle.TabIndex = 24;
-            this.trackBarPerAngle.Value = 90;
-            this.trackBarPerAngle.Scroll += new System.EventHandler(this.TrackBarPerAngle_Scroll);
             // 
             // labelPerFar
             // 
@@ -464,34 +448,24 @@
             // 
             // trackBarPerFar
             // 
-            this.trackBarPerFar.Location = new System.Drawing.Point(604, 52);
-            this.trackBarPerFar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarPerFar.Location = new System.Drawing.Point(8, 50);
+            this.trackBarPerFar.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarPerFar.Maximum = 200;
             this.trackBarPerFar.Minimum = 1;
             this.trackBarPerFar.Name = "trackBarPerFar";
-            this.trackBarPerFar.Size = new System.Drawing.Size(561, 56);
+            this.trackBarPerFar.Size = new System.Drawing.Size(1208, 56);
             this.trackBarPerFar.TabIndex = 22;
             this.trackBarPerFar.Value = 50;
             this.trackBarPerFar.Scroll += new System.EventHandler(this.TrackBarPerFar_Scroll);
-            // 
-            // labelPerAngle
-            // 
-            this.labelPerAngle.AutoSize = true;
-            this.labelPerAngle.Location = new System.Drawing.Point(17, 15);
-            this.labelPerAngle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelPerAngle.Name = "labelPerAngle";
-            this.labelPerAngle.Size = new System.Drawing.Size(44, 17);
-            this.labelPerAngle.TabIndex = 21;
-            this.labelPerAngle.Text = "Angle";
             // 
             // tabPageFrustum
             // 
             this.tabPageFrustum.Controls.Add(this.trackBarFruFar);
             this.tabPageFrustum.Controls.Add(this.labelFruFar);
             this.tabPageFrustum.Location = new System.Drawing.Point(4, 25);
-            this.tabPageFrustum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageFrustum.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageFrustum.Name = "tabPageFrustum";
-            this.tabPageFrustum.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageFrustum.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageFrustum.Size = new System.Drawing.Size(1244, 138);
             this.tabPageFrustum.TabIndex = 2;
             this.tabPageFrustum.Text = "Frustum";
@@ -500,11 +474,11 @@
             // trackBarFruFar
             // 
             this.trackBarFruFar.Location = new System.Drawing.Point(8, 50);
-            this.trackBarFruFar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarFruFar.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarFruFar.Maximum = 200;
             this.trackBarFruFar.Minimum = 1;
             this.trackBarFruFar.Name = "trackBarFruFar";
-            this.trackBarFruFar.Size = new System.Drawing.Size(561, 56);
+            this.trackBarFruFar.Size = new System.Drawing.Size(1202, 56);
             this.trackBarFruFar.TabIndex = 24;
             this.trackBarFruFar.Value = 50;
             this.trackBarFruFar.Scroll += new System.EventHandler(this.TrackBarFruFar_Scroll);
@@ -548,9 +522,9 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.trackBarLightX);
             this.groupBox2.Location = new System.Drawing.Point(1197, 33);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(368, 738);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
@@ -558,37 +532,36 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.comboBoxLightColorSpecular);
+            this.groupBox4.Controls.Add(this.СomboBoxLightColorSpecular);
             this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.comboBoxLightColorDiffuse);
+            this.groupBox4.Controls.Add(this.СomboBoxLightColorDiffuse);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.comboBoxLightColorAmbient);
+            this.groupBox4.Controls.Add(this.СomboBoxLightColorAmbient);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Location = new System.Drawing.Point(8, 431);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(352, 300);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Light color";
             // 
-            // comboBoxLightColorSpecular
+            // СomboBoxLightColorSpecular
             // 
-            this.comboBoxLightColorSpecular.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLightColorSpecular.FormattingEnabled = true;
-            this.comboBoxLightColorSpecular.Items.AddRange(new object[] {
+            this.СomboBoxLightColorSpecular.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.СomboBoxLightColorSpecular.FormattingEnabled = true;
+            this.СomboBoxLightColorSpecular.Items.AddRange(new object[] {
             "Black",
             "White",
-            "Read",
             "Green",
             "Blue"});
-            this.comboBoxLightColorSpecular.Location = new System.Drawing.Point(8, 146);
-            this.comboBoxLightColorSpecular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBoxLightColorSpecular.Name = "comboBoxLightColorSpecular";
-            this.comboBoxLightColorSpecular.Size = new System.Drawing.Size(335, 24);
-            this.comboBoxLightColorSpecular.TabIndex = 14;
-            this.comboBoxLightColorSpecular.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLightColorSpecular_SelectedIndexChanged);
+            this.СomboBoxLightColorSpecular.Location = new System.Drawing.Point(8, 146);
+            this.СomboBoxLightColorSpecular.Margin = new System.Windows.Forms.Padding(4);
+            this.СomboBoxLightColorSpecular.Name = "СomboBoxLightColorSpecular";
+            this.СomboBoxLightColorSpecular.Size = new System.Drawing.Size(335, 24);
+            this.СomboBoxLightColorSpecular.TabIndex = 14;
+            this.СomboBoxLightColorSpecular.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLightColorSpecular_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -600,22 +573,21 @@
             this.label13.TabIndex = 13;
             this.label13.Text = "SPECULAR";
             // 
-            // comboBoxLightColorDiffuse
+            // СomboBoxLightColorDiffuse
             // 
-            this.comboBoxLightColorDiffuse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLightColorDiffuse.FormattingEnabled = true;
-            this.comboBoxLightColorDiffuse.Items.AddRange(new object[] {
+            this.СomboBoxLightColorDiffuse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.СomboBoxLightColorDiffuse.FormattingEnabled = true;
+            this.СomboBoxLightColorDiffuse.Items.AddRange(new object[] {
             "Black",
             "White",
-            "Read",
             "Green",
             "Blue"});
-            this.comboBoxLightColorDiffuse.Location = new System.Drawing.Point(8, 91);
-            this.comboBoxLightColorDiffuse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBoxLightColorDiffuse.Name = "comboBoxLightColorDiffuse";
-            this.comboBoxLightColorDiffuse.Size = new System.Drawing.Size(335, 24);
-            this.comboBoxLightColorDiffuse.TabIndex = 12;
-            this.comboBoxLightColorDiffuse.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLightColorDiffuse_SelectedIndexChanged);
+            this.СomboBoxLightColorDiffuse.Location = new System.Drawing.Point(8, 91);
+            this.СomboBoxLightColorDiffuse.Margin = new System.Windows.Forms.Padding(4);
+            this.СomboBoxLightColorDiffuse.Name = "СomboBoxLightColorDiffuse";
+            this.СomboBoxLightColorDiffuse.Size = new System.Drawing.Size(335, 24);
+            this.СomboBoxLightColorDiffuse.TabIndex = 12;
+            this.СomboBoxLightColorDiffuse.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLightColorDiffuse_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -627,22 +599,22 @@
             this.label12.TabIndex = 11;
             this.label12.Text = "DIFFUSE";
             // 
-            // comboBoxLightColorAmbient
+            // СomboBoxLightColorAmbient
             // 
-            this.comboBoxLightColorAmbient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLightColorAmbient.FormattingEnabled = true;
-            this.comboBoxLightColorAmbient.Items.AddRange(new object[] {
+            this.СomboBoxLightColorAmbient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.СomboBoxLightColorAmbient.FormattingEnabled = true;
+            this.СomboBoxLightColorAmbient.Items.AddRange(new object[] {
             "Black",
             "White",
-            "Read",
+            "Red",
             "Green",
             "Blue"});
-            this.comboBoxLightColorAmbient.Location = new System.Drawing.Point(8, 39);
-            this.comboBoxLightColorAmbient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBoxLightColorAmbient.Name = "comboBoxLightColorAmbient";
-            this.comboBoxLightColorAmbient.Size = new System.Drawing.Size(335, 24);
-            this.comboBoxLightColorAmbient.TabIndex = 10;
-            this.comboBoxLightColorAmbient.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLightColorAmbient_SelectedIndexChanged);
+            this.СomboBoxLightColorAmbient.Location = new System.Drawing.Point(8, 39);
+            this.СomboBoxLightColorAmbient.Margin = new System.Windows.Forms.Padding(4);
+            this.СomboBoxLightColorAmbient.Name = "СomboBoxLightColorAmbient";
+            this.СomboBoxLightColorAmbient.Size = new System.Drawing.Size(335, 24);
+            this.СomboBoxLightColorAmbient.TabIndex = 10;
+            this.СomboBoxLightColorAmbient.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLightColorAmbient_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -667,7 +639,7 @@
             // trackBarLightA
             // 
             this.trackBarLightA.Location = new System.Drawing.Point(43, 337);
-            this.trackBarLightA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarLightA.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarLightA.Maximum = 360;
             this.trackBarLightA.Name = "trackBarLightA";
             this.trackBarLightA.Size = new System.Drawing.Size(317, 56);
@@ -694,7 +666,7 @@
             "LIGHT2",
             "LIGHT3"});
             this.comboBoxLights.Location = new System.Drawing.Point(8, 129);
-            this.comboBoxLights.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxLights.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxLights.Name = "comboBoxLights";
             this.comboBoxLights.Size = new System.Drawing.Size(351, 24);
             this.comboBoxLights.TabIndex = 6;
@@ -712,7 +684,7 @@
             // trackBarLightZ
             // 
             this.trackBarLightZ.Location = new System.Drawing.Point(35, 278);
-            this.trackBarLightZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarLightZ.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarLightZ.Maximum = 500;
             this.trackBarLightZ.Minimum = -500;
             this.trackBarLightZ.Name = "trackBarLightZ";
@@ -726,9 +698,9 @@
             this.groupBox3.Controls.Add(this.checkBoxLight1);
             this.groupBox3.Controls.Add(this.checkBoxLight2);
             this.groupBox3.Location = new System.Drawing.Point(11, 32);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(349, 90);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
@@ -740,11 +712,11 @@
             this.checkBoxLight0.Checked = true;
             this.checkBoxLight0.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLight0.Location = new System.Drawing.Point(8, 23);
-            this.checkBoxLight0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxLight0.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxLight0.Name = "checkBoxLight0";
-            this.checkBoxLight0.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxLight0.Size = new System.Drawing.Size(84, 21);
             this.checkBoxLight0.TabIndex = 1;
-            this.checkBoxLight0.Text = "LIGHT0";
+            this.checkBoxLight0.Text = "Option 0";
             this.checkBoxLight0.UseVisualStyleBackColor = true;
             this.checkBoxLight0.CheckedChanged += new System.EventHandler(this.CheckBoxLight0_CheckedChanged);
             // 
@@ -754,11 +726,11 @@
             this.checkBoxLight1.Checked = true;
             this.checkBoxLight1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLight1.Location = new System.Drawing.Point(8, 57);
-            this.checkBoxLight1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxLight1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxLight1.Name = "checkBoxLight1";
-            this.checkBoxLight1.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxLight1.Size = new System.Drawing.Size(84, 21);
             this.checkBoxLight1.TabIndex = 2;
-            this.checkBoxLight1.Text = "LIGHT1";
+            this.checkBoxLight1.Text = "Option 1";
             this.checkBoxLight1.UseVisualStyleBackColor = true;
             this.checkBoxLight1.CheckedChanged += new System.EventHandler(this.CheckBoxLight1_CheckedChanged);
             // 
@@ -768,11 +740,11 @@
             this.checkBoxLight2.Checked = true;
             this.checkBoxLight2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLight2.Location = new System.Drawing.Point(101, 23);
-            this.checkBoxLight2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxLight2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxLight2.Name = "checkBoxLight2";
-            this.checkBoxLight2.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxLight2.Size = new System.Drawing.Size(84, 21);
             this.checkBoxLight2.TabIndex = 3;
-            this.checkBoxLight2.Text = "LIGHT2";
+            this.checkBoxLight2.Text = "Option 2";
             this.checkBoxLight2.UseVisualStyleBackColor = true;
             this.checkBoxLight2.CheckedChanged += new System.EventHandler(this.CheckBoxLight2_CheckedChanged);
             // 
@@ -789,7 +761,7 @@
             // trackBarLightY
             // 
             this.trackBarLightY.Location = new System.Drawing.Point(33, 220);
-            this.trackBarLightY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarLightY.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarLightY.Maximum = 500;
             this.trackBarLightY.Minimum = -500;
             this.trackBarLightY.Name = "trackBarLightY";
@@ -810,7 +782,7 @@
             // trackBarLightX
             // 
             this.trackBarLightX.Location = new System.Drawing.Point(33, 166);
-            this.trackBarLightX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarLightX.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarLightX.Maximum = 500;
             this.trackBarLightX.Minimum = -500;
             this.trackBarLightX.Name = "trackBarLightX";
@@ -847,7 +819,7 @@
             this.Controls.Add(this.AnT);
             this.Controls.Add(this.menuStripMain);
             this.MainMenuStrip = this.menuStripMain;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -864,7 +836,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarOrtFar)).EndInit();
             this.tabPagePerspective.ResumeLayout(false);
             this.tabPagePerspective.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarPerAngle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPerFar)).EndInit();
             this.tabPageFrustum.ResumeLayout(false);
             this.tabPageFrustum.PerformLayout();
@@ -913,10 +884,8 @@
         private System.Windows.Forms.TrackBar trackBarOrtFar;
         private System.Windows.Forms.Label labelOrtFar;
         private System.Windows.Forms.TabPage tabPagePerspective;
-        private System.Windows.Forms.TrackBar trackBarPerAngle;
         private System.Windows.Forms.Label labelPerFar;
         private System.Windows.Forms.TrackBar trackBarPerFar;
-        private System.Windows.Forms.Label labelPerAngle;
         private System.Windows.Forms.TabPage tabPageFrustum;
         private System.Windows.Forms.TrackBar trackBarFruFar;
         private System.Windows.Forms.Label labelFruFar;
@@ -924,11 +893,11 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogTextureImage;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox comboBoxLightColorSpecular;
+        private System.Windows.Forms.ComboBox СomboBoxLightColorSpecular;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBoxLightColorDiffuse;
+        private System.Windows.Forms.ComboBox СomboBoxLightColorDiffuse;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBoxLightColorAmbient;
+        private System.Windows.Forms.ComboBox СomboBoxLightColorAmbient;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelLightInfo;
         private System.Windows.Forms.TrackBar trackBarLightA;
