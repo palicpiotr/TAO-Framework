@@ -1,57 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tao.DevIl;
 using Tao.FreeGlut;
 using Tao.OpenGl;
 
-namespace GL.PalicPG.Prim_117.LW8
+namespace GL.PalicPG.Prim_117.LW9
 {
     public partial class Form1 : Form
     {
-        // вспомогательные переменные - в них будут хранится обработанные значения,
-        // полученные при перетаскивании ползунков пользователем
         const int VALUE_X = 0, VALUE_Y = 0, VALUE_Z = -5, VALUE_ANGLE = 0, VALUE_ZOOM = 1;
-
         double a = 0;
-        double b = 0,
-            c = -5,
-            d = 90,
-            zoom = 1; // выбранные оси
+        double b = 0, c = -5, d = 90, zoom = 1;
         int os_x = 1, os_y = 0, os_z = 0;
-
+        int aniEarchRot = 0;
         uint mainTextureID = 0;
         bool isTextureAvalible = false;
-
-
         float[] colorBlack = { 0.0f, 0.0f, 0.0f, 1.0f };
         float[] colorWhite = { 1.0f, 1.0f, 1.0f, 1.0f };
         float[] colorRed = { 1.0f, 0.0f, 0.0f, 1.0f };
         float[] colorGreen = { 0.0f, 1.0f, 0.0f, 1.0f };
         float[] colorBlue = { 0.0f, 0.0f, 1.0f, 1.0f };
-
-        // режим сеточной визуализации
         bool Wire = false;
-
-        // объект с трёхмерной моделькой
         ModelLoader Model = null;
 
         public Form1()
         {
             InitializeComponent();
-            SimpleOpenGlControl.InitializeContexts();
+            AnT.InitializeContexts();
         }
 
-        private void OpenASEModelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileASE();
-        }
+        private void OpenASEModelToolStripMenuItem_Click(object sender, EventArgs e) => OpenFileASE();
 
         private void OpenTextureImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -60,10 +38,7 @@ namespace GL.PalicPG.Prim_117.LW8
                 try
                 {
                     Bitmap img = new Bitmap(openFileDialogTextureImage.FileName);
-
-
                     byte[] imgArr = new byte[img.Height * img.Width * 4];
-
                     for (int i = 0; i < img.Height; i++)
                     {
                         for (int j = 0; j < img.Width; j++)
@@ -94,10 +69,7 @@ namespace GL.PalicPG.Prim_117.LW8
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenFileASE();
-        }
+        private void Button1_Click(object sender, EventArgs e) => OpenFileASE();
 
         private void OpenFileASE()
         {
@@ -115,20 +87,15 @@ namespace GL.PalicPG.Prim_117.LW8
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             Glut.glutInit();
             Glut.glutInitDisplayMode(Glut.GLUT_RGBA | Glut.GLUT_DOUBLE);
             Gl.glClearColor(255, 255, 255, 1);
-            Gl.glViewport(0, 0, SimpleOpenGlControl.Width, SimpleOpenGlControl.Height);
+            Gl.glViewport(0, 0, AnT.Width, AnT.Height);
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
-            Glu.gluPerspective(45, (float)SimpleOpenGlControl.Width / (float)SimpleOpenGlControl.Height, 0.1, 200);
+            Glu.gluPerspective(45, (float)AnT.Width / (float)AnT.Height, 0.1, 200);
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
             Gl.glLoadIdentity();
             Gl.glEnable(Gl.GL_DEPTH_TEST);
@@ -152,13 +119,13 @@ namespace GL.PalicPG.Prim_117.LW8
             float[] globalAmbient = { 0.0f, 0.0f, 0.3f, 1.0f };
             Gl.glLightModelfv(Gl.GL_LIGHT_MODEL_AMBIENT, globalAmbient);
             comboBoxAxis.SelectedIndex = 0;
-            ComboBoxLightOptionSelect.SelectedIndex = 0;
+            comboBoxLights.SelectedIndex = 0;
             renderTimer.Start();
-            a = TrackBarX.Value / 1000.0;
-            b = TrackBarY.Value / 1000.0;
-            c = TrackBarZ.Value / 1000.0;
-            d = TrackBarAngle.Value;
-            zoom = TrackBarZoom.Value / 100.0;
+            a = trackBarX.Value / 1000.0;
+            b = trackBarY.Value / 1000.0;
+            c = trackBarZ.Value / 1000.0;
+            d = trackBarAngle.Value;
+            zoom = trackBarZoom.Value / 100.0;
         }
 
         private void CheckBoxWired_CheckedChanged(object sender, EventArgs e)
@@ -170,6 +137,7 @@ namespace GL.PalicPG.Prim_117.LW8
         {
             TabControl tc = (TabControl)sender;
             labelTest.Text = tc.SelectedTab.Text;
+
             switch (tc.SelectedIndex)
             {
                 case 0:
@@ -182,6 +150,13 @@ namespace GL.PalicPG.Prim_117.LW8
                     ChangeFru();
                     break;
             }
+        }
+
+        private void TrackBarPerAngle_Scroll(object sender, EventArgs e)
+        {
+            TrackBar tb = (TrackBar)sender;
+            labelPerAngle.Text = "Angle " + tb.Value;
+            ChangePer();
         }
 
         private void TrackBarPerFar_Scroll(object sender, EventArgs e)
@@ -209,7 +184,7 @@ namespace GL.PalicPG.Prim_117.LW8
         {
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
-            Gl.glOrtho(-1.0, 1.0, -1.0, 1.0, 0, TrackBarFarOrtho.Value);
+            Gl.glOrtho(-1.0, 1.0, -1.0, 1.0, 0, trackBarOrtFar.Value);
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
             Gl.glLoadIdentity();
         }
@@ -217,7 +192,9 @@ namespace GL.PalicPG.Prim_117.LW8
         private void ChangePer()
         {
             Gl.glMatrixMode(Gl.GL_PROJECTION);
-            Gl.glLoadIdentity(); Gl.glMatrixMode(Gl.GL_MODELVIEW);
+            Gl.glLoadIdentity();
+            Glu.gluPerspective(trackBarPerAngle.Value, (float)AnT.Width / (float)AnT.Height, 0.1, trackBarPerFar.Value);
+            Gl.glMatrixMode(Gl.GL_MODELVIEW);
             Gl.glLoadIdentity();
         }
 
@@ -225,8 +202,7 @@ namespace GL.PalicPG.Prim_117.LW8
         {
             Gl.glMatrixMode(Gl.GL_PROJECTION);
             Gl.glLoadIdentity();
-            Gl.glFrustum(-0.01, 0.1, -0.01, 0.1, 0.1, TrackBarFarFrustum.Value);
-
+            Gl.glFrustum(-0.01, 0.1, -0.01, 0.1, 0.1, trackBarFruFar.Value);
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
             Gl.glLoadIdentity();
         }
@@ -269,8 +245,9 @@ namespace GL.PalicPG.Prim_117.LW8
 
         private void ChangeLightParams()
         {
-            Live.Text = $"X {TrackBarLightX.Value} Y {TrackBarLightY.Value} Z {TrackBarLightZ.Value} An {TrackBarLightAngle.Value}"; int LIGHT = Gl.GL_LIGHT0;
-            switch (ComboBoxLightOptionSelect.SelectedIndex)
+            labelLightInfo.Text = $"X {trackBarLightX.Value} Y {trackBarLightY.Value} Z{trackBarLightZ.Value} Angle {trackBarLightA.Value}";
+            int LIGHT = Gl.GL_LIGHT0;
+            switch (comboBoxLights.SelectedIndex)
             {
                 case 0:
                     LIGHT = Gl.GL_LIGHT0;
@@ -285,7 +262,7 @@ namespace GL.PalicPG.Prim_117.LW8
                     LIGHT = Gl.GL_LIGHT3;
                     break;
             }
-            float[] pos = { TrackBarLightX.Value / 20f, TrackBarLightY.Value / 20f, TrackBarLightZ.Value / 20f, 1.0f };
+            float[] pos = { trackBarLightX.Value / 20f, trackBarLightY.Value / 20f, trackBarLightZ.Value / 20f, 1.0f };
             Gl.glLightfv(LIGHT, Gl.GL_POSITION, pos);
         }
 
@@ -295,16 +272,17 @@ namespace GL.PalicPG.Prim_117.LW8
 
         private void CheckBoxLight2_CheckedChanged(object sender, EventArgs e) => LightSwitcher(((CheckBox)sender).Checked, Gl.GL_LIGHT2);
 
-        private void ComboBoxLightColorAmbient_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(ComboBoxLightOptionSelect.SelectedIndex, Gl.GL_AMBIENT, ComboBoxLightColorAmbientSelect.SelectedIndex);
+        private void ComboBoxLightColorAmbient_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_AMBIENT, comboBoxLightColorAmbient.SelectedIndex);
 
-        private void ComboBoxLightColorDiffuse_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(ComboBoxLightOptionSelect.SelectedIndex, Gl.GL_DIFFUSE, ComboBoxLightColorDiffuseSelect.SelectedIndex);
+        private void ComboBoxLightColorDiffuse_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_DIFFUSE, comboBoxLightColorDiffuse.SelectedIndex);
 
-        private void ComboBoxLightColorSpecular_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(ComboBoxLightOptionSelect.SelectedIndex, Gl.GL_SPECULAR, ComboBoxLightColorSpecularSelect.SelectedIndex);
+        private void ComboBoxLightColorSpecular_SelectedIndexChanged(object sender, EventArgs e) => LightColorSwitcher(comboBoxLights.SelectedIndex, Gl.GL_SPECULAR, comboBoxLightColorSpecular.SelectedIndex);
 
         private void LightColorSwitcher(int light, int PNAME, int color)
         {
             float[] c = colorBlack;
             int l = Gl.GL_LIGHT0;
+
             switch (color)
             {
                 case 0:
@@ -323,6 +301,7 @@ namespace GL.PalicPG.Prim_117.LW8
                     c = colorBlue;
                     break;
             }
+
             switch (light)
             {
                 case 0:
@@ -338,8 +317,10 @@ namespace GL.PalicPG.Prim_117.LW8
                     l = Gl.GL_LIGHT3;
                     break;
             }
+
             Gl.glLightfv(l, PNAME, c);
         }
+
 
         private void LightSwitcher(bool enable, int LIGHT)
         {
@@ -366,14 +347,21 @@ namespace GL.PalicPG.Prim_117.LW8
         private void Draw()
         {
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
-            Gl.glClearColor(255, 255, 255, 1);
+            Gl.glClearColor(0, 0, 0.1f, 1);
             Gl.glLoadIdentity();
             Gl.glPushMatrix();
             Gl.glTranslated(a, b, c);
             Gl.glRotated(d, os_x, os_y, os_z);
+            Gl.glRotated(aniEarchRot, 0.7, 0.2, 0.1);
+            aniEarchRot++;
             Gl.glScaled(zoom, zoom, zoom);
             if (Model != null)
                 Model.DrawModel();
+            Gl.glPopMatrix();
+            Gl.glPushMatrix();
+            Gl.glTranslated(a + (Math.Cos(aniEarchRot / 20.0)) * 3, b + (Math.Sin(aniEarchRot / 20.0)) * 3, c + (Math.Sin(aniEarchRot / 40.0)) * 3);
+            Glut.glutSolidSphere(0.3, 20, 20);
+            Gl.glPopMatrix();
             if (isTextureAvalible)
             {
                 Gl.glEnable(Gl.GL_TEXTURE_2D);
@@ -394,9 +382,8 @@ namespace GL.PalicPG.Prim_117.LW8
                 Gl.glPopMatrix();
                 Gl.glDisable(Gl.GL_TEXTURE_2D);
             }
-            Gl.glPopMatrix();
             Gl.glFlush();
-            SimpleOpenGlControl.Invalidate();
+            AnT.Invalidate();
         }
     }
 }
