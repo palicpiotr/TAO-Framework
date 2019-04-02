@@ -16,7 +16,7 @@ namespace Course.Building.Palic
         private Camera _camera;
         private Texture _floorTexture;
         private Texture _boxTexture;
-        private Texture _beerTexture;
+        private Texture _logTexture;
         private Point _blockCoord = new Point(2, 3, 2);
         private Point _logCoord = new Point(3, 5, 6);
         private bool isBoomed = false;
@@ -54,7 +54,7 @@ namespace Course.Building.Palic
             Gl.glEnable(Gl.GL_LIGHT0);
             _floorTexture = new Texture("Textures\\Floor.jpg");
             _boxTexture = new Texture("Textures\\Block.jpg");
-            _beerTexture = new Texture("Textures\\Log.jpg");
+            _logTexture = new Texture("Textures\\Log.jpg");
             timer.Start();
         }
 
@@ -156,7 +156,7 @@ namespace Course.Building.Palic
             Gl.glEnable(Gl.GL_TEXTURE_2D);
             Gl.glEnable(Gl.GL_TEXTURE_GEN_S);
             Gl.glEnable(Gl.GL_TEXTURE_GEN_T);
-            Gl.glBindTexture(Gl.GL_TEXTURE_2D, _beerTexture.mGlTextureObject);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, _logTexture.mGlTextureObject);
 
             Gl.glPushMatrix();
 
@@ -343,5 +343,10 @@ namespace Course.Building.Palic
 
         private void OnAnimationChenged(object sender, EventArgs e) => _randomAnimationUsed = checkBoxAnimation.Checked;
 
+        private void HotKeysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string info = "Camera morion — W/A/S/D \n Camera rotation — Q/A \n Camera incline — X/C \n Zoom — M/N \n Transition — K/J/K/L \n Explosion — B";
+            MessageBox.Show(info, "Hot keys", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+        }
     }
 }
