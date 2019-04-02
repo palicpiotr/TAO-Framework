@@ -15,13 +15,13 @@ namespace Course.Building.Palic.Models
             Center = center;
         }
 
-        public static List<Pillar> getPillars()
+        public static List<Pillar> GetPillars()
         {
             var pillars = new List<Pillar>();
-            pillars.Add(new Pillar(0.1, 10, new Point(0, 0, 0)));
-            pillars.Add(new Pillar(0.1, 10, new Point(5, 10, 0)));
-            pillars.Add(new Pillar(0.1, 10, new Point(5, 0, 0)));
-            pillars.Add(new Pillar(0.1, 10, new Point(0, 10, 0)));
+            pillars.Add(new Pillar(0.1, 10 - 5, new Point(5 - 5, 10 - 5, 0 - 5)));
+            pillars.Add(new Pillar(0.1, 10 - 5, new Point(5 - 5, 10 - 5, 0 - 5)));
+            pillars.Add(new Pillar(0.1, 10 - 5, new Point(5 - 5, 0 - 5, 0 - 5)));
+            pillars.Add(new Pillar(0.1, 10 - 5, new Point(0 - 5, 10 - 5, 0 - 5)));
             return pillars;
         }
     }

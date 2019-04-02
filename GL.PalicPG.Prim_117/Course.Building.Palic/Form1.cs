@@ -17,6 +17,8 @@ namespace Course.Building.Palic
         private Texture _floorTexture;
         private Texture _boxTexture;
         private Texture _logTexture;
+        private Texture _shelfTexture;
+        private Texture _teapotTexture;
         private Point _blockCoord = new Point(2, 3, 2);
         private Point _logCoord = new Point(3, 5, 6);
         private bool isBoomed = false;
@@ -55,6 +57,8 @@ namespace Course.Building.Palic
             _floorTexture = new Texture("Textures\\Floor.jpg");
             _boxTexture = new Texture("Textures\\Block.jpg");
             _logTexture = new Texture("Textures\\Log.jpg");
+            _shelfTexture = new Texture("Textures\\Sh.jpg");
+            _teapotTexture = new Texture("Textures\\Teapot.jpg");
             timer.Start();
         }
 
@@ -136,13 +140,14 @@ namespace Course.Building.Palic
             }
 
             DrawFloor();
+            DrawRack();
             if (!isBoomed)
                 DrawBlock(_blockCoord.X, _blockCoord.Y, 0);
             DrawBlock(_blockCoord.X + 3, _blockCoord.Y + 3, _blockCoord.Z);
             DrawBlock(_blockCoord.X + 6, _blockCoord.Y + 6, _blockCoord.Z + 3);
             DrawBoom(_globalTime);
             DrawLog();
-
+            DrawTeapot();
             DrawWindow.Invalidate();
         }
 
@@ -199,6 +204,87 @@ namespace Course.Building.Palic
             Glut.glutSolidCube(4);
             Gl.glPopMatrix();
             Gl.glFlush();
+            Gl.glDisable(Gl.GL_TEXTURE_2D);
+        }
+
+        public void DrawTeapot()
+        {
+            Gl.glClearColor(255, 255, 255, 1);
+            Gl.glEnable(Gl.GL_TEXTURE_2D);
+            Gl.glEnable(Gl.GL_TEXTURE_GEN_S);
+            Gl.glEnable(Gl.GL_TEXTURE_GEN_T);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, _teapotTexture.mGlTextureObject);
+            Gl.glLoadIdentity();
+            Gl.glPushMatrix();
+            Gl.glTranslated(-2, 3, 1.5);
+            var a = new Random().Next(10);
+            //Gl.glRotated(3, 0, 6, 10);
+            Gl.glRotated(a-5, a - 1, a - 4, a + 1);
+            Glut.glutSolidTeapot(0.5);
+            Gl.glPopMatrix();
+            Gl.glFlush();
+            Gl.glDisable(Gl.GL_TEXTURE_2D);
+        }
+
+        public void DrawRack()
+        {           
+            foreach (Pillar pillar in Pillar.GetPillars())
+            {
+                Gl.glClearColor(255, 255, 255, 1);
+                Gl.glLoadIdentity();
+                Gl.glTranslated(pillar.Center.X, pillar.Center.Y, pillar.Center.Z);
+                Glut.glutSolidCylinder(pillar.Radius, 6, 10, 10);
+                Gl.glPopMatrix();
+                Gl.glFlush();
+            }
+         
+            Gl.glClearColor(255, 255, 255, 1);
+            Gl.glLoadIdentity();
+
+            Gl.glEnable(Gl.GL_TEXTURE_2D);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, _shelfTexture.mGlTextureObject);
+
+            Gl.glPushMatrix();
+            Gl.glBegin(Gl.GL_QUADS);
+
+            Point lowerLeftPoint = new Point(0 - 5, 0 - 5, 6 - 5);
+            Point topRightPoint = new Point(5 - 5, 10 - 5, 6 - 5);
+            Point lowerRightPoint = new Point(5 - 5, 0 - 5, 6 - 5);
+            Point topLeftPoint = new Point(0 - 5, 10 - 5, 6 - 5);
+
+            Gl.glTexCoord2f(0.0f, 0.0f); Gl.glVertex3f((float)lowerLeftPoint.X, (float)lowerLeftPoint.Y, (float)lowerLeftPoint.Z);
+            Gl.glTexCoord2f(1.0f, 0.0f); Gl.glVertex3f((float)lowerRightPoint.X, (float)lowerRightPoint.Y, (float)lowerRightPoint.Z);
+            Gl.glTexCoord2f(1.0f, 1.0f); Gl.glVertex3f((float)topRightPoint.X, (float)topRightPoint.Y, (float)topRightPoint.Z);
+            Gl.glTexCoord2f(0.0f, 1.0f); Gl.glVertex3f((float)topLeftPoint.X, (float)topLeftPoint.Y, (float)topLeftPoint.Z);
+
+            Gl.glTexCoord2f(1.0f, 0.0f); Gl.glVertex3f((float)lowerRightPoint.X, (float)lowerRightPoint.Y, (float)lowerRightPoint.Z);
+            Gl.glTexCoord2f(1.0f, 1.0f); Gl.glVertex3f((float)topRightPoint.X, (float)topRightPoint.Y, (float)topRightPoint.Z);
+            Gl.glTexCoord2f(0.0f, 1.0f); Gl.glVertex3f((float)topLeftPoint.X, (float)topLeftPoint.Y, (float)topLeftPoint.Z);
+            Gl.glTexCoord2f(0.0f, 0.0f); Gl.glVertex3f((float)lowerLeftPoint.X, (float)lowerLeftPoint.Y, (float)lowerLeftPoint.Z);
+
+            Gl.glTexCoord2f(0.0f, 1.0f); Gl.glVertex3f((float)topLeftPoint.X, (float)topLeftPoint.Y, (float)topLeftPoint.Z);
+            Gl.glTexCoord2f(0.0f, 0.0f); Gl.glVertex3f((float)lowerLeftPoint.X, (float)lowerLeftPoint.Y, (float)lowerLeftPoint.Z);
+            Gl.glTexCoord2f(1.0f, 0.0f); Gl.glVertex3f((float)lowerRightPoint.X, (float)lowerRightPoint.Y, (float)lowerRightPoint.Z);
+            Gl.glTexCoord2f(1.0f, 1.0f); Gl.glVertex3f((float)topRightPoint.X, (float)topRightPoint.Y, (float)topRightPoint.Z);
+
+            Gl.glTexCoord2f(1.0f, 1.0f); Gl.glVertex3f((float)topRightPoint.X, (float)topRightPoint.Y, (float)topRightPoint.Z);
+            Gl.glTexCoord2f(0.0f, 1.0f); Gl.glVertex3f((float)topLeftPoint.X, (float)topLeftPoint.Y, (float)topLeftPoint.Z);
+            Gl.glTexCoord2f(0.0f, 0.0f); Gl.glVertex3f((float)lowerLeftPoint.X, (float)lowerLeftPoint.Y, (float)lowerLeftPoint.Z);
+            Gl.glTexCoord2f(1.0f, 0.0f); Gl.glVertex3f((float)lowerRightPoint.X, (float)lowerRightPoint.Y, (float)lowerRightPoint.Z);
+
+            Gl.glTexCoord2f(1.0f, 0.0f); Gl.glVertex3f((float)lowerRightPoint.X, (float)lowerRightPoint.Y, (float)lowerRightPoint.Z);
+            Gl.glTexCoord2f(1.0f, 1.0f); Gl.glVertex3f((float)topRightPoint.X, (float)topRightPoint.Y, (float)topRightPoint.Z);
+            Gl.glTexCoord2f(0.0f, 1.0f); Gl.glVertex3f((float)topLeftPoint.X, (float)topLeftPoint.Y, (float)topLeftPoint.Z);
+            Gl.glTexCoord2f(0.0f, 0.0f); Gl.glVertex3f((float)lowerLeftPoint.X, (float)lowerLeftPoint.Y, (float)lowerLeftPoint.Z);
+
+            Gl.glTexCoord2f(0.0f, 0.0f); Gl.glVertex3f((float)lowerLeftPoint.X, (float)lowerLeftPoint.Y, (float)lowerLeftPoint.Z);
+            Gl.glTexCoord2f(1.0f, 0.0f); Gl.glVertex3f((float)lowerRightPoint.X, (float)lowerRightPoint.Y, (float)lowerRightPoint.Z);
+            Gl.glTexCoord2f(1.0f, 1.0f); Gl.glVertex3f((float)topRightPoint.X, (float)topRightPoint.Y, (float)topRightPoint.Z);
+            Gl.glTexCoord2f(0.0f, 1.0f); Gl.glVertex3f((float)topLeftPoint.X, (float)topLeftPoint.Y, (float)topLeftPoint.Z);
+
+            Gl.glEnd();
+
+            Gl.glPopMatrix();
             Gl.glDisable(Gl.GL_TEXTURE_2D);
         }
 
